@@ -1,0 +1,31 @@
+.dcl-box {
+  position: sticky;
+  top: 16px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding: 10px;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  background: #fbfbfb;
+  font-size: 13px;
+}
+.dcl-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-weight: 600;
+  color: #666;
+  letter-spacing: 2px;
+  padding: 6px 2px;
+  border-right: 1px dashed #e0e0e0;
+}
+.dcl-links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.dcl-btn {
+  padding: 6px 10px;
+  border-radius: 16px;
+  border: 1px solid #ddd;
+  background: #fff;
+  text-decoration: none;
+  line-height: 1;
+}
+.dcl-btn:hover { background: #f0f0f0; }

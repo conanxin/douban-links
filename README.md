@@ -1,2 +1,2 @@
-# douban-links
-douban-links
+# Douban Custom Links (v4.2)
+豆瓣 电影/图书页右栏“外链直达”：多关键词强校验 + 智能回退 + 自动填词提交。

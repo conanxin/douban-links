@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Douban Custom Links (Strong Check v4.2)",
+  "version": "0.4.2",
+  "description": "豆瓣书/电影外链直达：强校验（正则解析）+ 智能回退 + 站点自动填词提交。",
+  "icons": {
+    "128": "assets/icon128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "http://www.qiaomi.cn/*",
+    "https://yyets.click/*",
+    "https://www.rrdynb.com/*"
+  ],
+  "background": {
+    "service_worker": "bg.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://book.douban.com/subject/*",
+        "*://movie.douban.com/subject/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "http://www.qiaomi.cn/*",
+        "https://yyets.click/*",
+        "https://www.rrdynb.com/*"
+      ],
+      "js": [
+        "adapters.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html"
+}
