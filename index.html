@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>在恶的阴影下：阿伦特逝世50周年线上展览</title>
+  <style>
+    :root {
+      --bg: #f7f9fb;
+      --card: #ffffff;
+      --primary: #0f4c75;
+      --accent: #f9a826;
+      --muted: #5a6a73;
+      --line: #dfe7ef;
+      --shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "system-ui", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: #1f2a32;
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header.navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .brand {
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+    }
+    nav a {
+      margin-left: 16px;
+      font-weight: 600;
+      color: #2c3e50;
+      font-size: 15px;
+    }
+    nav a:hover { color: var(--primary); }
+    .hero {
+      background: radial-gradient(circle at 20% 20%, rgba(249,168,38,0.14), transparent 35%),
+                  radial-gradient(circle at 80% 0%, rgba(15,76,117,0.18), transparent 45%),
+                  linear-gradient(135deg, #e8f1f8, #fdf7f2);
+      padding: 90px 20px 70px;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .hero h1 { font-size: 36px; margin-bottom: 12px; }
+    .hero h2 { font-size: 20px; font-weight: 500; color: var(--muted); margin-top: 0; }
+    .pill { display: inline-block; background: var(--primary); color: #fff; padding: 8px 14px; border-radius: 20px; font-size: 13px; letter-spacing: 0.4px; }
+    .lead { font-size: 18px; margin: 16px 0; color: #2d3b45; max-width: 860px; }
+    .quote { border-left: 4px solid var(--accent); padding-left: 16px; margin: 24px 0; font-style: italic; color: #2f3942; }
+    section { padding: 70px 0; }
+    section h3 { margin-top: 0; font-size: 28px; }
+    .subhead { color: var(--muted); font-size: 16px; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 22px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .card h4 { margin: 0 0 10px; }
+    .timeline {
+      border-left: 3px solid var(--primary);
+      padding-left: 18px;
+      position: relative;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: -9px;
+      top: 0;
+      bottom: 0;
+      width: 18px;
+      background: linear-gradient(var(--accent), transparent);
+      opacity: 0.15;
+    }
+    .timeline-item { margin-bottom: 22px; padding-left: 14px; position: relative; }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -24px;
+      top: 6px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid var(--primary);
+    }
+    .timeline-item.active::before { background: var(--accent); border-color: var(--primary); }
+    .tag { display: inline-block; padding: 4px 10px; border-radius: 12px; background: #eef3f7; color: var(--primary); font-size: 12px; margin-right: 8px; }
+    .map-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .map-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+    .map-card::after {
+      content: "";
+      position: absolute;
+      right: -40px; top: -40px;
+      width: 120px; height: 120px;
+      background: radial-gradient(circle, rgba(15,76,117,0.12), transparent 60%);
+      transform: rotate(25deg);
+    }
+    details summary { cursor: pointer; font-weight: 600; color: var(--primary); }
+    .question-list li { margin-bottom: 8px; }
+    .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .media-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px; box-shadow: var(--shadow); }
+    .cta-btn { display: inline-block; padding: 10px 16px; border-radius: 10px; background: var(--primary); color: #fff; font-weight: 600; margin-top: 10px; }
+    .section-lead { font-size: 17px; color: #2d3b45; max-width: 920px; }
+    .action-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 16px; margin-top: 18px; }
+    .pill-ghost { display: inline-block; padding: 6px 12px; border-radius: 12px; background: #f4f6f8; color: #4a5c68; font-size: 13px; }
+    .iframe-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: var(--shadow); margin-top: 12px; }
+    .iframe-wrap iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:0; }
+    footer { background: #0f1c2e; color: #dce6f5; padding: 40px 20px; margin-top: 40px; }
+    footer a { color: #f9a826; }
+    .toc-mobile { display: none; }
+    .back-top { position: fixed; right: 16px; bottom: 16px; background: var(--accent); color: #111; padding: 10px 12px; border-radius: 50%; box-shadow: var(--shadow); cursor: pointer; display: none; }
+    @media (max-width: 780px) {
+      nav { display: none; }
+      .toc-mobile { display: flex; overflow-x: auto; gap: 10px; padding: 8px 0; }
+      .toc-mobile a { background: #fff; border: 1px solid var(--line); padding: 6px 10px; border-radius: 10px; white-space: nowrap; font-size: 14px; color: #2c3e50; }
+      .hero h1 { font-size: 28px; }
+      section { padding: 50px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="brand">在恶的阴影下 · Hannah Arendt 1975–2025</div>
+      <nav aria-label="主要导航">
+        <a href="#intro">首页</a>
+        <a href="#hall1">故乡与流亡</a>
+        <a href="#hall2">极权与平庸之恶</a>
+        <a href="#hall3">人的境况</a>
+        <a href="#hall4">思·意·审</a>
+        <a href="#hall5">2025年纪念</a>
+        <a href="#hall6">资料廊</a>
+        <a href="#reading">延伸阅读</a>
+      </nav>
+    </div>
+    <div class="toc-mobile" aria-label="移动导航">
+      <a href="#intro">首页</a>
+      <a href="#hall2">平庸之恶</a>
+      <a href="#hall3">行动</a>
+      <a href="#hall5">2025</a>
+      <a href="#reading">阅读</a>
+    </div>
+  </header>
+
+  <section class="hero" id="intro">
+    <div class="container">
+      <span class="pill">策展命题：在恶的阴影下，如何重新想象自由、行动与责任？</span>
+      <h1>《在恶的阴影下：一个流亡者眼中的自由、行动与责任》</h1>
+      <h2>汉娜·阿伦特逝世 50 周年线上展览 · 1975–2025</h2>
+      <p class="lead">2025 年，我们在极权的记忆、算法的治理、流亡的再现与战争的回响之中，再次遇见阿伦特。她提醒我们：平庸之恶并非怪物的专利，而是日常服从与思考怠惰的叠加；公共世界需要行动与对话，而不仅是情绪的算法分发；思想、意志与审判的练习，是每个公民在技术时代的自救。</p>
+      <p class="lead">本展邀请你以多个观看路径进入：追随流亡者的脚步、剖析极权与“平庸之恶”、在数字平台上重新理解“行动”，并走向 2025 年全球的纪念现场。我们不会告诉你标准答案，而是抛出问题：当权力与技术合谋，个人责任还能多大？当信息泛滥，思考本身是否仍是一种行动？</p>
+      <div class="quote">
+        <strong>“思想的意义在于阻止灾难的发生。”</strong> —— Hannah Arendt<br>
+        <small>“The aim of thinking is to prevent catastrophes in the affairs of men.”</small>
+      </div>
+    </div>
+  </section>
+
+  <section id="hall1">
+    <div class="container">
+      <h3>展厅一：故乡、流亡与地图（1906–1975）</h3>
+      <p class="section-lead">阿伦特的思想不是书斋中长出的，而是被驱赶、被拘捕、被迫离开故土后，在断裂的地理与语言里发芽。我们用时间轴与地图感，呈现一位女性知识分子在二十世纪暴力地形中的漂移——每一次迁徙，都在追问：当公民身份被剥夺，我们如何仍然行动、发声、与他人相遇？</p>
+      <div class="timeline" aria-label="阿伦特生平时间轴">
+        <div class="timeline-item active" data-target="1906">
+          <div class="tag">1906–1924</div>
+          <strong>汉诺威出生，柯尼斯堡童年</strong>
+          <p>在母亲玛莎的自由教育下，她习得了对公共事务的敏感与独立判断。柯尼斯堡的康德传统成为她早期的道德坐标。</p>
+          <p class="subhead">策展人旁白：童年的城市并非永恒，而是一种对“世界性”的最初想象。</p>
+        </div>
+        <div class="timeline-item" data-target="1924">
+          <div class="tag">1924–1933</div>
+          <strong>马堡、海德堡求学</strong>
+          <p>在马丁·海德格尔的课堂上，她学习现象学；在卡尔·雅斯贝尔斯的指导下，她完成关于奥古斯丁之爱的论文。哲学的严苛训练与情感的复杂纠葛，塑造了她对“存在”与“行动”的双重敏感。</p>
+          <p class="subhead">策展人旁白：她意识到私人情感与公共责任并不矛盾，关键是如何把爱转化为行动。</p>
+        </div>
+        <div class="timeline-item" data-target="1933">
+          <div class="tag">1933–1940</div>
+          <strong>纳粹上台、拘捕与巴黎流亡</strong>
+          <p>从事犹太救援工作，被盖世太保短暂拘押后逃往巴黎。她在移民局排队、协助难民填表、组织青年教育，这些体验让她深切理解“无国籍者”的脆弱与力量。</p>
+          <p class="subhead">策展人旁白：她在行政表格之间看见了现代官僚如何决定生命的命运。</p>
+        </div>
+        <div class="timeline-item" data-target="1941">
+          <div class="tag">1941–1950</div>
+          <strong>抵达纽约，成为公共知识分子</strong>
+          <p>经葡萄牙辗转赴美，在纽约成为《自由报》编辑，与海因里希·布吕歇结婚。她旁观并介入美国的公共辩论，逐步形成对极权主义、革命与自由的系统思考。</p>
+          <p class="subhead">策展人旁白：流亡的英语成为她新的写作工具，也让她更敏感于语言如何承载权力。</p>
+        </div>
+        <div class="timeline-item" data-target="1951">
+          <div class="tag">1951–1963</div>
+          <strong>重要作品与教学</strong>
+          <p>《极权主义的起源》（1951）出版；在普林斯顿、哈佛、芝加哥大学、新学院等地授课。她不断把课堂当作公共领域的实验场，鼓励学生以故事、见证而非抽象法则理解政治。</p>
+          <p class="subhead">策展人旁白：她拒绝成为“纯理论家”，总是回到具体现场。</p>
+        </div>
+        <div class="timeline-item" data-target="1963">
+          <div class="tag">1963–1975</div>
+          <strong>《艾希曼在耶路撒冷》与晚年</strong>
+          <p>报道审判引发巨大争议，她坚持“平庸之恶”的洞见；继续撰写《人的境况》（1958）与未完成的《精神生活》。1975 年逝世于纽约的书桌前。</p>
+          <p class="subhead">策展人旁白：她以写作作为行动，在争议中捍卫思考的责任。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hall2">
+    <div class="container">
+      <h3>展厅二：极权主义与“恶的平庸”</h3>
+      <p class="section-lead">从《极权主义的起源》到《艾希曼在耶路撒冷》，阿伦特不断追问：当意识形态与官僚机器结合，个体如何被隔离、原子化，最终在不思考的服从中成为加害者？她并非为艾希曼开脱，而是警告：平庸的，是我们放弃思考的习惯。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h4>概念卡 01：平庸之恶</h4>
+          <p>“平庸”并非恶的轻微，而是指加害者缺席想象力与判断力，以官僚语汇掩盖个人责任。艾希曼的陈词“我只是遵命”揭示了现代体制如何把行动者变为零件。</p>
+          <ul class="question-list">
+            <li>我们在日常工作中有多少决策是“照流程走”？</li>
+            <li>当流程伤害他人时，我们是否还能说“我别无选择”？</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>概念卡 02：意识形态与孤立</h4>
+          <p>极权主义并非暴君个人的意志，而是意识形态 + 官僚技术 + 群体孤立的产物。孤立使人失去公共言说的空间，只能依赖唯一的解释体系，从而接受极端命令。</p>
+          <p class="subhead">当代呼应：算法推荐会否制造新的“信息孤岛”，把我们变成只听单一声音的“原子”？</p>
+        </div>
+        <div class="card">
+          <h4>争议盒子：耶路撒冷的风暴</h4>
+          <p>《艾希曼在耶路撒冷》被批评忽视犹太议会角色、误读艾希曼的意识形态性。后来的历史学家如 Christopher Browning 在《平凡的男人》中提出普通警察也可成为屠杀者，与阿伦特形成对话：动机、服从、环境如何交织？</p>
+          <details>
+            <summary>展开更多</summary>
+            <p>阿伦特坚持，邪恶不必出自病态的恶魔，而可能出自思想的空洞；她的立场引发了“受害者能否批评”的伦理争议，但也促使后世更严肃地审视官僚结构和日常顺从。</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="iframe-wrap" aria-label="视频：Banality of Evil Explained">
+        <iframe src="https://www.youtube.com/embed/fqV8WrzO8Xg" title="Explaining the Banality of Evil"></iframe>
+      </div>
+      <p class="subhead">视频：Explaining the Banality of Evil（英文，公开课节选），提醒我们“思考”是一种抵抗。</p>
+
+      <div class="card" style="margin-top:20px;">
+        <h4>思考问题</h4>
+        <ul class="question-list">
+          <li>在算法与官僚体制中，个人责任是否被稀释，还是被重新分配？</li>
+          <li>当我们在社交媒体上转发未经核实的信息，这算不算“无思考的行动”？</li>
+          <li>面对权威指令时，我们有哪些判断的资源？法律、良知、还是来自与他人的对话？</li>
+          <li>“服从”与“同意”有何区别？我们是否能拒绝“自动完成”的决定？</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="hall3">
+    <div class="container">
+      <h3>展厅三：人的境况与行动（vita activa）</h3>
+      <p class="section-lead">在《人的境况》（The Human Condition）中，阿伦特区分了劳动（labor）、工作（work）与行动（action）。劳动维持生命，工作塑造人工世界，行动则在公共领域与他人相遇、开启新的开始。她强调“多元性”（plurality）与“出生/新开始”（natality），意味着每个人都有带来意外与更新的能力。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h4>三分法示意</h4>
+          <p><strong>劳动</strong>：循环、必要、与身体维持相关；<br>
+             <strong>工作</strong>：有目标、留下持久物品；<br>
+             <strong>行动</strong>：与他人言说、共同建构公共世界。</p>
+          <p class="subhead">问题：数字平台把我们推向“无尽的劳动”（刷屏、打卡），还是创造新的行动空间？</p>
+        </div>
+        <div class="card">
+          <h4>当代例子 01：社交媒体的“公共”错觉</h4>
+          <p>在朋友圈和短视频里，我们似乎在表达，却可能只是满足算法对停留时长的需求。真正的行动需要风险与可见性，需要对话而非单向发布。</p>
+        </div>
+        <div class="card">
+          <h4>当代例子 02：开源社区与协作</h4>
+          <p>当代码、翻译、文档在协作平台上被共同维护时，公共领域得以具体展开。行动不是宏大的演讲，而是一次 pull request、一条认真写的 issue。</p>
+        </div>
+        <div class="card">
+          <h4>当代例子 03：AI 助手与写作</h4>
+          <p>AI 可以协助劳动（整理、摘要），也能帮助完成工作（生成初稿），但真正的行动仍需人类在公共场合承担署名与责任，表达“我为什么这样说”。</p>
+        </div>
+      </div>
+
+      <div class="action-grid">
+        <div class="card">
+          <h4>公共领域的条件</h4>
+          <p>需要可见性、平等的发言机会、以及对事实的尊重。阿伦特提醒，公共世界被谎言和宣传侵蚀时，行动者将失去共同的现实感。</p>
+          <p class="subhead">练习：回想你最近一次公共讨论（线上或线下），事实与意见被如何区分？</p>
+        </div>
+        <div class="card">
+          <h4>多元性与新开始</h4>
+          <p>多元性不是分裂，而是承认每个人都以不同视角看世界。新开始意味着我们可以超越过去的决定，在行动中创造未被预设的结果。</p>
+          <p class="subhead">问题：当平台算法预测并锁定你的偏好，还剩多少“意外”空间？</p>
+        </div>
+        <div class="card">
+          <h4>2025 当代回声</h4>
+          <p><strong>意大利维罗纳大学</strong>举办 “Arendtian Counciliarism” 会议，讨论地方自治与公民议会；<strong>印度 Goethe-Institut</strong> 推出 “Contemplating the Active Life” 系列，与社区艺术结合行动的可能。</p>
+          <p class="subhead">策展人旁白：这些活动把阿伦特的概念放回具体城市与社区，提醒我们行动总在某处发生。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hall4">
+    <div class="container">
+      <h3>展厅四：思、意、审——未完成的《精神生活》</h3>
+      <p class="section-lead">阿伦特晚年未竟之作《精神生活》（The Life of the Mind）计划探讨三部：思（thinking）、意（willing）、审（judging）。她希望打通内在心智与公共政治的关系，指出思考、意志、判断是防止平庸之恶的日常练习。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h4>思（Thinking）</h4>
+          <p>思考是与自己对话，暂停自动的惯性。它不生成规则，却养成“不盲从”的气质。阿伦特引用苏格拉底：未经审视的生活不值得过。</p>
+          <p class="subhead">小练习：今天留十分钟，把手机放远，回顾一件让你不安的新闻，尝试提出两个不同视角的问题。</p>
+        </div>
+        <div class="card">
+          <h4>意（Willing）</h4>
+          <p>意志让我们说“我将要……”，在过去与未来之间做出决断。意志与自由紧密相连，它把可能性变成现实的承诺。</p>
+          <p class="subhead">问题：当代的“拖延”与“无力感”是否与意志的萎缩相关？</p>
+        </div>
+        <div class="card">
+          <h4>审（Judging）</h4>
+          <p>判断不是套用公式，而是在具体情境中权衡，想象他人视角。阿伦特借用康德的“扩大化思维”，主张在多元声音中形成可传达的判断。</p>
+          <p class="subhead">练习：回想你最近一次对他人行为的批评，你依据了哪些标准？这些标准能否公开说服他人？</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:20px;">
+        <h4>播客 / 讲座推荐</h4>
+        <ul class="question-list">
+          <li>Bard Hannah Arendt Center: “Reading Hannah Arendt with Roger Berkowitz”——系统导读《精神生活》，每集聚焦一章。</li>
+          <li>Heinrich-Böll-Stiftung 播客：讨论阿伦特的判断力与气候政治。</li>
+          <li>New School 公开课：从《责任与判断》谈到当代技术伦理。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="hall5">
+    <div class="container">
+      <h3>展厅五：2025——全球的“阿伦特之年”</h3>
+      <p class="section-lead">逝世 50 周年的 2025 年，被许多机构认定为“阿伦特之年”。不同地区的人们以会议、展览、行走、阅读会回应她，折射各自的政治与文化关切：有人聚焦流亡与公民身份，有人讨论数字威权，有人把她带入艺术与城市空间。</p>
+
+      <div class="map-grid" aria-label="纪念活动城市卡片">
+        <div class="map-card">
+          <h4>纽约 · NYU / Deutsches Haus</h4>
+          <p>会议 “Home to Roost: Hannah Arendt Conference” 聚焦“回归”的主题，讨论流亡者如何再次想象家的可能。</p>
+          <p class="pill-ghost">问题：在新移民城市，谁有权定义“家”？</p>
+        </div>
+        <div class="map-card">
+          <h4>巴塞罗那 · Hannah Arendt Days</h4>
+          <p>以公共讲座与街区漫步结合，探讨旅游城市中的公共空间正义。</p>
+          <p class="pill-ghost">问题：当城市被观光化，公民行动在哪些角落发生？</p>
+        </div>
+        <div class="map-card">
+          <h4>汉诺威 · Arendt Days</h4>
+          <p>家乡的纪念强调教育与青年民主实践，邀请高中生模拟公民议会。</p>
+          <p class="pill-ghost">问题：在出生地谈论阿伦特，记忆如何与地方政治交织？</p>
+        </div>
+        <div class="map-card">
+          <h4>Bard College · 墓地行走</h4>
+          <p>师生走访阿伦特与布吕歇墓地，朗读《责任与判断》，讨论“纪念仪式是否也是行动”。</p>
+          <p class="pill-ghost">问题：纪念是追忆还是再次开始？</p>
+        </div>
+        <div class="map-card">
+          <h4>雅加达 / 德里 · Goethe-Institut</h4>
+          <p>“Under the Stars” 露天放映阿伦特主题电影；“Contemplating the Active Life” 工作坊将街区调研与公共艺术结合。</p>
+          <p class="pill-ghost">问题：热带城市的夜空下，公共领域如何被重新搭建？</p>
+        </div>
+        <div class="map-card">
+          <h4>北京 · Goethe-Institut</h4>
+          <p>举办“重新想象公民身份”线上论坛，讨论数字身份与跨境劳工；与独立书店合作的阅读小组。</p>
+          <p class="pill-ghost">问题：数字平台能否成为新公共，还是新的审查边界？</p>
+        </div>
+      </div>
+
+      <div class="timeline" style="margin-top:24px;" aria-label="2025 时间轴">
+        <div class="timeline-item active">
+          <div class="tag">1–2 月</div>
+          <strong>纽约：Home to Roost</strong>
+          <p>主题围绕“归巢”，邀请难民学者与艺术家讨论回归与居住权。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="tag">3 月</div>
+          <strong>巴塞罗那：城市漫步</strong>
+          <p>以步行会议形式穿越哥特区，探讨游客经济与公共领域的紧张。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="tag">5–6 月</div>
+          <strong>汉诺威：青年公民议会</strong>
+          <p>高校与中学合作，让学生模拟公民评议，辩论气候、住房政策。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="tag">8 月</div>
+          <strong>维罗纳大学：Arendtian Counciliarism</strong>
+          <p>聚焦地方自治与欧盟治理，讨论“议会主义之外的议会”。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="tag">10–11 月</div>
+          <strong>雅加达 / 德里 / 北京：Under the Stars</strong>
+          <p>露天电影、社区艺术与线上论坛交织，关注跨国劳工与城市迁徙。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="tag">12 月</div>
+          <strong>线上：全球读书会</strong>
+          <p>各地社群通过视频会议共读《人的境况》，尝试跨时区的公共讨论。</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:20px;">
+        <h4>关键提问</h4>
+        <ul class="question-list">
+          <li>不同语境中，人们如何选取阿伦特的词语来回应当下？“流亡”“公共领域”“平庸之恶”被赋予了哪些地方性含义？</li>
+          <li>纪念是否可能成为一种行动，而非静态仪式？</li>
+          <li>全球化的纪念会不会抹平差异，还是能制造新的跨文化对话？</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="hall6">
+    <div class="container">
+      <h3>展厅六：观看与收听——多媒体资料廊</h3>
+      <p class="section-lead">挑选几段影像与声音，帮助观众在不同媒介中遇见阿伦特。每个资源都是一种进入路径，可以快览，也能深入。</p>
+      <div class="media-grid">
+        <div class="media-card">
+          <h4>《Hannah Arendt》（玛格丽特·冯·特罗塔，2012）</h4>
+          <p>电影以艾希曼审判报道为线索，呈现思想与舆论风暴。</p>
+          <a class="cta-btn" href="https://www.imdb.com/title/tt1674773/" target="_blank" rel="noopener">IMDB</a>
+        </div>
+        <div class="media-card">
+          <h4>PBS / American Masters《Facing Tyranny》</h4>
+          <p>纪录片梳理阿伦特对极权的洞见，采访众多学者与目击者。</p>
+          <a class="cta-btn" href="https://www.pbs.org/wnet/americanmasters/hannah-arendt-about/2640/" target="_blank" rel="noopener">查看</a>
+        </div>
+        <div class="media-card">
+          <h4>Radio Open Source – “Lessons from Hannah Arendt”</h4>
+          <p>播客对话将阿伦特与当代政治危机并置，适合通勤时收听。</p>
+          <a class="cta-btn" href="https://radioopensource.org/lessons-from-hannah-arendt/" target="_blank" rel="noopener">收听</a>
+        </div>
+        <div class="media-card">
+          <h4>BBC In Our Time: Hannah Arendt</h4>
+          <p>简明讨论她的生平与思想，适合作为入门广播。</p>
+          <a class="cta-btn" href="https://www.bbc.co.uk/programmes/p00548qv" target="_blank" rel="noopener">收听</a>
+        </div>
+        <div class="media-card">
+          <h4>亚德尔研究院公开课</h4>
+          <p>以案例研讨《责任与判断》，探讨法律与伦理的交叉。</p>
+          <a class="cta-btn" href="https://hac.bard.edu" target="_blank" rel="noopener">访问</a>
+        </div>
+        <div class="media-card">
+          <h4>Short Film: “Banality of Evil in Modern Bureaucracy”</h4>
+          <p>短视频用动画展示官僚流程中的责任消失机制。</p>
+          <a class="cta-btn" href="https://www.youtube.com/results?search_query=banality+of+evil+animation" target="_blank" rel="noopener">观看</a>
+        </div>
+        <div class="media-card">
+          <h4>Podcast: “Contemplating the Active Life”</h4>
+          <p>来自印度 Goethe-Institut 的系列访谈，连接城市行动者与艺术家。</p>
+          <a class="cta-btn" href="https://www.goethe.de" target="_blank" rel="noopener">了解</a>
+        </div>
+        <div class="media-card">
+          <h4>纪录片：《Hannah Arendt: Du trotzt den Stürmen》</h4>
+          <p>德语纪录片关注她的流亡经历与友谊网络。</p>
+          <a class="cta-btn" href="https://www.ardmediathek.de" target="_blank" rel="noopener">访问</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reading">
+    <div class="container">
+      <h3>延伸阅读与参考书目</h3>
+      <p class="section-lead">我们提供三条阅读路径：入门、进阶、专业。书名首次出现附中英文，方便查找。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h4>入门</h4>
+          <ul class="question-list">
+            <li>《艾希曼在耶路撒冷》（Eichmann in Jerusalem）——理解“平庸之恶”的核心文本。</li>
+            <li>《人的境况》（The Human Condition）——把行动放回日常世界的经典。</li>
+            <li>BBC “In Our Time: Hannah Arendt” 节目——一小时快速导览。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>进阶</h4>
+          <ul class="question-list">
+            <li>《极权主义的起源》（The Origins of Totalitarianism）——重新审视民族主义、帝国与反犹主义的结构。</li>
+            <li>《论革命》（On Revolution）——美国与法国革命对比，思考自由与公民参与。</li>
+            <li>Margaret Canovan: <em>Hannah Arendt: A Reinterpretation</em> ——英文研究经典。</li>
+            <li>陈独秀译本导读、北大政治哲学讲座等中文二手资料。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>专业 / 研究者</h4>
+          <ul class="question-list">
+            <li>Seyla Benhabib, <em>The Reluctant Modernism of Hannah Arendt</em>——探讨她的现代性批判。</li>
+            <li>Bonnie Honig, <em>Political Theory and the Displacement of Politics</em>——与阿伦特对话的批判性视角。</li>
+            <li>《责任与判断》（Responsibility and Judgment）——收录阿伦特的后期演讲与论文。</li>
+            <li>《精神生活》（The Life of the Mind）——思、意、审的未竟探索。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px;">
+        <h4>阅读路径提示</h4>
+        <p>如果你是第一次接触阿伦特，可以从《艾希曼在耶路撒冷》与纪录片入手，感受她的问题意识；然后进入《人的境况》理解行动的细节；再回到《极权主义的起源》与《论革命》拓展结构性视野；最后阅读《精神生活》与学术评论，思考心智与政治的连接。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h3>关于本展 / 致谢</h3>
+      <p class="section-lead">本展由“在恶的阴影下”策展小组与 AI 协作完成，旨在以非商业、教育方式重新打开阿伦特的思想。文本选择了全球多语境的活动与资源，但难免有遗漏与偏向，欢迎观众通过邮件与我们分享更多线索。</p>
+      <p>特别感谢：Bard Hannah Arendt Center、Goethe-Institut、NYU Deutsches Haus、各地读书会与独立书店的公开信息；感谢所有仍在公共领域行动的人。</p>
+      <p>策展/制作：你 + AI 协作 ｜ 2025</p>
+    </div>
+  </section>
+
+  <div class="back-top" aria-label="回到顶部" title="回到顶部">↑</div>
+
+  <footer>
+    <div class="container">
+      <p>本展为开源静态页面，可部署于 GitHub Pages。内容仅用于教育与讨论，不构成法律或学术意见。</p>
+      <p>欢迎分享、改编与提出建议。</p>
+    </div>
+  </footer>
+
+  <script>
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        var targetId = this.getAttribute('href').slice(1);
+        var target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // 时间轴高亮
+    var timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach(function(item) {
+      item.addEventListener('click', function() {
+        var parent = item.parentElement;
+        if (parent.classList.contains('timeline')) {
+          parent.querySelectorAll('.timeline-item').forEach(function(i){ i.classList.remove('active'); });
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // 回到顶部
+    var backTop = document.querySelector('.back-top');
+    backTop.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    window.addEventListener('scroll', function(){
+      backTop.style.display = window.scrollY > 320 ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>
